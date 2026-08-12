@@ -1,5 +1,6 @@
 ﻿import { MessageCircle } from "lucide-react"
 import { useSiteContent } from "../../lib/content.js"
+import SocialIcons from "../ui/SocialIcons.jsx"
 
 function Hero() {
   const { content } = useSiteContent()
@@ -40,6 +41,9 @@ function Hero() {
 
         <div className="text-sm md:text-base text-white/90 max-w-xs md:ml-auto md:text-right order-3">
           <p>{content.heroIntroRight}</p>
+          <div className="mt-4 flex md:justify-end">
+            <SocialIcons links={content.socialLinks} />
+          </div>
         </div>
       </div>
     </section>

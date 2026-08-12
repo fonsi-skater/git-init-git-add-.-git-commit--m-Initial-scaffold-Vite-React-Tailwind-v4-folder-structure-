@@ -17,6 +17,10 @@ function AdminContentEditor() {
     setForm({ ...form, [key]: value })
   }
 
+  function updateSocial(key, value) {
+    setForm({ ...form, socialLinks: { ...form.socialLinks, [key]: value } })
+  }
+
   function updateListItem(listKey, index, field, value) {
     const list = [...form[listKey]]
     list[index] = { ...list[index], [field]: value }
@@ -60,6 +64,19 @@ function AdminContentEditor() {
             <label className={labelClass}>Right intro text</label>
             <textarea className={inputClass} rows="2" value={form.heroIntroRight} onChange={(e) => updateField("heroIntroRight", e.target.value)} />
           </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="font-bold text-lg mb-4">Social Links</h2>
+        <p className="text-xs text-brand-dark/50 mb-3">Leave blank to hide an icon. Only filled-in links show up on the site.</p>
+        <div className="space-y-3">
+          {Object.keys(form.socialLinks).map((key) => (
+            <div key={key}>
+              <label className={labelClass}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+              <input className={inputClass} placeholder={`https://...`} value={form.socialLinks[key]} onChange={(e) => updateSocial(key, e.target.value)} />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -123,7 +140,7 @@ function AdminContentEditor() {
 
       <div className="sticky bottom-6">
         <button onClick={handleSave} disabled={status === "saving"} className="px-6 py-3 rounded-full bg-brand-dark text-white font-medium hover:bg-brand-mid transition disabled:opacity-50">
-          {status === "saving" ? "Saving..." : status === "saved" ? "Saved (check)" : "Save Changes"}
+          {status === "saving" ? "Saving..." : status === "saved" ? "Saved" : "Save Changes"}
         </button>
         {status === "error" && <p className="mt-2 text-sm text-red-600">Something went wrong saving.</p>}
       </div>

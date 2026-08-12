@@ -21,6 +21,15 @@ const defaults = {
   footerBio: "UX/UI Designer turning complex ideas into simple digital experiences.",
   footerEmail: "alphonce@example.com",
   footerPhone: "+254 700 000 000",
+  socialLinks: {
+    linkedin: "",
+    github: "https://github.com/fonsi-skater",
+    twitter: "",
+    instagram: "",
+    behance: "",
+    dribbble: "",
+    whatsapp: "",
+  },
 }
 
 export function useSiteContent() {
@@ -31,7 +40,8 @@ export function useSiteContent() {
     const ref = doc(db, "siteContent", "main")
     const unsub = onSnapshot(ref, (snap) => {
       if (snap.exists()) {
-        setContent({ ...defaults, ...snap.data() })
+        const data = snap.data()
+        setContent({ ...defaults, ...data, socialLinks: { ...defaults.socialLinks, ...(data.socialLinks || {}) } })
       }
       setLoading(false)
     })

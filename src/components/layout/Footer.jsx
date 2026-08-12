@@ -1,5 +1,6 @@
-﻿import { Globe, Mail, Phone } from "lucide-react"
+﻿import { Mail, Phone } from "lucide-react"
 import { useSiteContent } from "../../lib/content.js"
+import SocialIcons from "../ui/SocialIcons.jsx"
 
 function Footer() {
   const { content } = useSiteContent()
@@ -10,11 +11,8 @@ function Footer() {
         <div>
           <h3 className="font-bold text-lg">Alphonce Okoth</h3>
           <p className="mt-2 text-sm text-white/60">{content.footerBio}</p>
-          <div className="mt-4 flex gap-3">
-            <a href="#" aria-label="LinkedIn" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
-            </a>
-            <a href="#" aria-label="Portfolio" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"><Globe size={14} /></a>
+          <div className="mt-4">
+            <SocialIcons links={content.socialLinks} />
           </div>
         </div>
 
