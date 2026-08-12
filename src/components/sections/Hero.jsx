@@ -1,6 +1,9 @@
 ﻿import { MessageCircle } from "lucide-react"
+import { useSiteContent } from "../../lib/content.js"
 
 function Hero() {
+  const { content } = useSiteContent()
+
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-brand-dark via-brand-mid to-brand-light overflow-hidden flex flex-col items-center justify-center px-6 text-white">
       <div className="absolute inset-6 md:inset-12 border-t border-white/10 grid grid-cols-3 pointer-events-none">
@@ -21,7 +24,7 @@ function Hero() {
 
       <div className="relative z-10 mt-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 items-end gap-8">
         <div className="text-sm md:text-base text-white/90 max-w-xs order-2 md:order-1">
-          <p>Hey, I am Alphonce, I help businesses turn complex ideas into simple, intuitive digital experiences.</p>
+          <p>{content.heroIntroLeft}</p>
           <a href="#contact" className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/60 hover:bg-black/80 transition text-sm font-medium">
             Let's Talk Now <MessageCircle size={14} />
           </a>
@@ -36,7 +39,7 @@ function Hero() {
         </div>
 
         <div className="text-sm md:text-base text-white/90 max-w-xs md:ml-auto md:text-right order-3">
-          <p>This portfolio showcases my journey as a UX/UI designer that reflects my passion for design.</p>
+          <p>{content.heroIntroRight}</p>
         </div>
       </div>
     </section>
