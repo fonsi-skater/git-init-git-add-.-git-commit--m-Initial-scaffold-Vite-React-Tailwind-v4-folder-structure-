@@ -6,23 +6,13 @@ function Navbar() {
       <span className="text-sm font-medium">With 7+ Years of Experience</span>
 
       <nav className="hidden md:flex items-center gap-4">
-        
-          href="#contact"
-          className="px-4 py-2 rounded-full bg-brand-dark/40 backdrop-blur border border-white/20 text-sm font-medium hover:bg-brand-dark/60 transition"
-        >
+        <a href="#contact" className="px-4 py-2 rounded-full bg-brand-dark/40 backdrop-blur border border-white/20 text-sm font-medium hover:bg-brand-dark/60 transition">
           Let's Talk
         </a>
-        
-          href="/resume.pdf"
-          download
-          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-sm font-medium hover:bg-white/20 transition"
-        >
+        <a href="/resume.pdf" download className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-sm font-medium hover:bg-white/20 transition">
           My Resume <Download size={14} />
         </a>
-        <button
-          aria-label="Open menu"
-          className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 border border-white/20"
-        >
+        <button aria-label="Open menu" className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 border border-white/20">
           <Menu size={16} />
         </button>
       </nav>
