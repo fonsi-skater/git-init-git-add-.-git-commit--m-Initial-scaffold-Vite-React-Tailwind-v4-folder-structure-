@@ -9,6 +9,7 @@ import ContactForm from "./components/sections/ContactForm.jsx"
 import Footer from "./components/layout/Footer.jsx"
 import AdminLogin from "./pages/AdminLogin.jsx"
 import AdminDashboard from "./pages/AdminDashboard.jsx"
+import NotFound from "./pages/NotFound.jsx"
 
 function HomePage() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
