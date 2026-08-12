@@ -13,33 +13,38 @@ function Navbar() {
   ]
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-20 text-white">
-      <div className="flex items-center justify-between px-6 md:px-12 py-6">
-        <span className="text-sm font-medium">With 7+ Years of Experience</span>
+    <header className="absolute top-0 left-0 right-0 z-30 text-brand-cream">
+      <div className="flex items-center justify-between px-6 md:px-16 py-6">
+        <span className="font-display italic text-lg tracking-wide">Alphonce Okoth</span>
 
-        <nav className="hidden md:flex items-center gap-4">
-          <a href="#contact" className="px-4 py-2 rounded-full bg-brand-dark/40 backdrop-blur border border-white/20 text-sm font-medium hover:bg-brand-dark/60 transition">Let's Talk</a>
-          <a href="/resume.pdf" download className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-sm font-medium hover:bg-white/20 transition">My Resume <Download size={14} /></a>
-          <button aria-label="Open menu" onClick={() => setOpen(!open)} className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition">
-            {open ? <X size={16} /> : <Menu size={16} />}
-          </button>
+        <nav className="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase text-brand-cream/70">
+          <a href="#selected-works" className="hover:text-brand-cream transition">Work</a>
+          <a href="#services" className="hover:text-brand-cream transition">Services</a>
+          <a href="#contact" className="hover:text-brand-cream transition">Contact</a>
         </nav>
 
-        <button aria-label="Open menu" onClick={() => setOpen(!open)} className="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-white/10 border border-white/20">
+        <div className="hidden md:flex items-center gap-3">
+          <a href="/resume.pdf" download className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:bg-white/15 transition">Resume <Download size={14} /></a>
+          <button aria-label="Open menu" onClick={() => setOpen(!open)} className="w-10 h-10 flex items-center justify-center rounded-full glass hover:bg-white/15 transition">
+            {open ? <X size={16} /> : <Menu size={16} />}
+          </button>
+        </div>
+
+        <button aria-label="Open menu" onClick={() => setOpen(!open)} className="md:hidden w-10 h-10 flex items-center justify-center rounded-full glass">
           {open ? <X size={16} /> : <Menu size={16} />}
         </button>
       </div>
 
       {open && (
-        <div className="bg-brand-dark/95 backdrop-blur border-t border-white/10 px-6 md:px-12 py-6">
+        <div className="glass-dark mx-4 md:mx-16 rounded-2xl px-6 py-6 mb-4">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="text-lg font-medium hover:text-brand-light transition">
+              <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="font-display italic text-xl hover:text-brand-gold transition">
                 {link.label}
               </a>
             ))}
-            <a href="/resume.pdf" download className="md:hidden mt-2 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium w-fit">
-              My Resume <Download size={14} />
+            <a href="/resume.pdf" download className="md:hidden mt-2 flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium w-fit">
+              Resume <Download size={14} />
             </a>
           </nav>
         </div>

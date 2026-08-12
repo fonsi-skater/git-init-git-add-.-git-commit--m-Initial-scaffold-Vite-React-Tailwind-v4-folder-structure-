@@ -74,7 +74,7 @@ function AdminContentEditor() {
           {Object.keys(form.socialLinks).map((key) => (
             <div key={key}>
               <label className={labelClass}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
-              <input className={inputClass} placeholder={`https://...`} value={form.socialLinks[key]} onChange={(e) => updateSocial(key, e.target.value)} />
+              <input className={inputClass} placeholder="https://..." value={form.socialLinks[key]} onChange={(e) => updateSocial(key, e.target.value)} />
             </div>
           ))}
         </div>
@@ -86,17 +86,17 @@ function AdminContentEditor() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
           <h2 className="font-bold text-lg">Path to Mastery</h2>
-          <button onClick={() => addListItem("pathToMastery", { year: "", title: "", desc: "" })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition"><Plus size={12} /> Add milestone</button>
+          <button onClick={() => addListItem("pathToMastery", { year: "", title: "", desc: "" })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition w-fit"><Plus size={12} /> Add milestone</button>
         </div>
         <div className="space-y-4">
           {form.pathToMastery.map((m, i) => (
             <div key={i} className="p-4 rounded-xl border border-brand-dark/10 relative">
               <button onClick={() => removeListItem("pathToMastery", i)} className="absolute top-3 right-3 text-red-500 hover:text-red-700"><Trash2 size={14} /></button>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pr-8">
                 <input className={inputClass} placeholder="Year" value={m.year} onChange={(e) => updateListItem("pathToMastery", i, "year", e.target.value)} />
-                <input className={inputClass + " col-span-3"} placeholder="Title" value={m.title} onChange={(e) => updateListItem("pathToMastery", i, "title", e.target.value)} />
+                <input className={inputClass + " sm:col-span-3"} placeholder="Title" value={m.title} onChange={(e) => updateListItem("pathToMastery", i, "title", e.target.value)} />
               </div>
               <textarea className={inputClass + " mt-2"} rows="2" placeholder="Description" value={m.desc} onChange={(e) => updateListItem("pathToMastery", i, "desc", e.target.value)} />
             </div>
@@ -105,15 +105,15 @@ function AdminContentEditor() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
           <h2 className="font-bold text-lg">Services</h2>
-          <button onClick={() => addListItem("services", { title: "", desc: "" })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition"><Plus size={12} /> Add service</button>
+          <button onClick={() => addListItem("services", { title: "", desc: "" })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition w-fit"><Plus size={12} /> Add service</button>
         </div>
         <div className="space-y-4">
           {form.services.map((s, i) => (
             <div key={i} className="p-4 rounded-xl border border-brand-dark/10 relative">
               <button onClick={() => removeListItem("services", i)} className="absolute top-3 right-3 text-red-500 hover:text-red-700"><Trash2 size={14} /></button>
-              <input className={inputClass} placeholder="Title" value={s.title} onChange={(e) => updateListItem("services", i, "title", e.target.value)} />
+              <input className={inputClass + " pr-8"} placeholder="Title" value={s.title} onChange={(e) => updateListItem("services", i, "title", e.target.value)} />
               <textarea className={inputClass + " mt-2"} rows="2" placeholder="Description" value={s.desc} onChange={(e) => updateListItem("services", i, "desc", e.target.value)} />
             </div>
           ))}
@@ -138,8 +138,8 @@ function AdminContentEditor() {
         </div>
       </div>
 
-      <div className="sticky bottom-6">
-        <button onClick={handleSave} disabled={status === "saving"} className="px-6 py-3 rounded-full bg-brand-dark text-white font-medium hover:bg-brand-mid transition disabled:opacity-50">
+      <div className="sticky bottom-4">
+        <button onClick={handleSave} disabled={status === "saving"} className="px-6 py-3 rounded-full bg-brand-dark text-white font-medium hover:bg-brand-mid transition disabled:opacity-50 shadow-lg">
           {status === "saving" ? "Saving..." : status === "saved" ? "Saved" : "Save Changes"}
         </button>
         {status === "error" && <p className="mt-2 text-sm text-red-600">Something went wrong saving.</p>}
