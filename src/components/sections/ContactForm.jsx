@@ -13,16 +13,12 @@ function ContactForm() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
     if (form.company) return
-
     if (!form.name || !form.email || !form.message) {
       setStatus("error")
       return
     }
-
     setStatus("sending")
-
     try {
       await addDoc(collection(db, "inquiries"), {
         name: form.name,
@@ -30,13 +26,7 @@ function ContactForm() {
         message: form.message,
         createdAt: serverTimestamp(),
       })
-
-      await sendInquiryEmails({
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-      })
-
+      await sendInquiryEmails({ from_name: form.name, from_email: form.email, message: form.message })
       setStatus("success")
       setForm({ name: "", email: "", message: "", company: "" })
     } catch (err) {
@@ -45,24 +35,26 @@ function ContactForm() {
     }
   }
 
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-cream placeholder:text-brand-cream/40 focus:outline-none focus:border-brand-gold/60 transition"
+
   return (
-    <section id="contact" className="px-6 md:px-12 py-20 bg-white text-brand-dark">
+    <section id="contact" className="px-6 md:px-16 py-24 bg-brand-dark">
       <div className="max-w-2xl mx-auto">
-        <span className="inline-block text-xs font-semibold tracking-wide px-3 py-1 rounded-full bg-brand-light/10 text-brand-mid mb-8">Get In Touch</span>
+        <span className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full glass text-brand-cream/80 mb-8">Get In Touch</span>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input type="text" name="company" value={form.company} onChange={handleChange} className="hidden" tabIndex="-1" autoComplete="off" />
 
-          <input type="text" name="name" placeholder="Your name" value={form.name} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-brand-dark/10 focus:outline-none focus:border-brand-mid" />
-          <input type="email" name="email" placeholder="Your email" value={form.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-brand-dark/10 focus:outline-none focus:border-brand-mid" />
-          <textarea name="message" placeholder="Your message" rows="5" value={form.message} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-brand-dark/10 focus:outline-none focus:border-brand-mid" />
+          <input type="text" name="name" placeholder="Your name" value={form.name} onChange={handleChange} className={inputClass} />
+          <input type="email" name="email" placeholder="Your email" value={form.email} onChange={handleChange} className={inputClass} />
+          <textarea name="message" placeholder="Your message" rows="5" value={form.message} onChange={handleChange} className={inputClass} />
 
-          <button type="submit" disabled={status === "sending"} className="px-6 py-3 rounded-full bg-brand-dark text-white font-medium hover:bg-brand-mid transition disabled:opacity-50">
+          <button type="submit" disabled={status === "sending"} className="px-6 py-3 rounded-full glass text-brand-cream font-medium hover:bg-white/15 transition disabled:opacity-50">
             {status === "sending" ? "Sending..." : "Send Message"}
           </button>
 
-          {status === "success" && <p className="text-sm text-green-600">Message sent! I'll get back to you soon.</p>}
-          {status === "error" && <p className="text-sm text-red-600">Something went wrong. Please fill all fields and try again.</p>}
+          {status === "success" && <p className="text-sm text-brand-teal">Message sent! I'll get back to you soon.</p>}
+          {status === "error" && <p className="text-sm text-red-400">Something went wrong. Please fill all fields and try again.</p>}
         </form>
       </div>
     </section>

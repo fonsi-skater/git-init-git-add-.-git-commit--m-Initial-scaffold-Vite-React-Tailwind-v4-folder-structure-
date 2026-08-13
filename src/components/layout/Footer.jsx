@@ -6,47 +6,47 @@ function Footer() {
   const { content } = useSiteContent()
 
   return (
-    <footer className="px-6 md:px-12 py-16 bg-brand-dark text-white border-t border-white/10">
+    <footer className="px-6 md:px-16 py-16 bg-brand-charcoal border-t border-white/10">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <h3 className="font-bold text-lg">Alphonce Okoth</h3>
-          <p className="mt-2 text-sm text-white/60">{content.footerBio}</p>
+          <h3 className="font-display italic text-xl text-brand-cream">Alphonce Okoth</h3>
+          <p className="mt-2 text-sm text-brand-cream/60">{content.footerBio}</p>
           <div className="mt-4">
             <SocialIcons links={content.socialLinks} />
           </div>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-white/80">Navigation</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/60">
-            <li><a href="#my-story" className="hover:text-white transition">My Story</a></li>
-            <li><a href="#path-to-mastery" className="hover:text-white transition">Path to Mastery</a></li>
-            <li><a href="#selected-works" className="hover:text-white transition">Selected Works</a></li>
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-brand-cream/50">Navigation</h4>
+          <ul className="mt-3 space-y-2 text-sm text-brand-cream/70">
+            <li><a href="#my-story" className="hover:text-brand-gold transition">My Story</a></li>
+            <li><a href="#path-to-mastery" className="hover:text-brand-gold transition">Path to Mastery</a></li>
+            <li><a href="#selected-works" className="hover:text-brand-gold transition">Selected Works</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-white/80">Services</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/60">
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-brand-cream/50">Services</h4>
+          <ul className="mt-3 space-y-2 text-sm text-brand-cream/70">
             {content.services.map((s) => <li key={s.title}>{s.title}</li>)}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-white/80">Contact</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/60">
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-brand-cream/50">Contact</h4>
+          <ul className="mt-3 space-y-2 text-sm text-brand-cream/70">
             <li className="flex items-center gap-2"><Mail size={14} /> {content.footerEmail}</li>
             <li className="flex items-center gap-2"><Phone size={14} /> {content.footerPhone}</li>
           </ul>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
+      <div className="max-w-5xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-brand-cream/40">
         <p>&copy; 2026 Alphonce Okoth. All rights reserved.</p>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-white transition">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition">Terms</a>
-          <a href="/admin" className="hover:text-white transition">Admin</a>
+          <a href="#" className="hover:text-brand-cream transition">Privacy Policy</a>
+          <a href="#" className="hover:text-brand-cream transition">Terms</a>
+          <a href="/admin" className="hover:text-brand-cream transition">Admin</a>
         </div>
       </div>
     </footer>

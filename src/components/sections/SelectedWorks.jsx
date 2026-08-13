@@ -16,22 +16,22 @@ function SelectedWorks() {
   }, [])
 
   return (
-    <section id="selected-works" className="px-6 md:px-12 py-20 bg-white text-brand-dark">
+    <section id="selected-works" className="px-6 md:px-16 py-24 bg-brand-dark">
       <div className="max-w-5xl mx-auto">
-        <span className="inline-block text-xs font-semibold tracking-wide px-3 py-1 rounded-full bg-brand-light/10 text-brand-mid mb-10">Selected Works</span>
+        <span className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full glass text-brand-cream/80 mb-12">Selected Works</span>
 
-        {status === "loading" && <p className="text-brand-dark/60">Loading projects...</p>}
-        {status === "error" && <p className="text-brand-dark/60">Couldn't load projects right now.</p>}
+        {status === "loading" && <p className="text-brand-cream/50">Loading projects...</p>}
+        {status === "error" && <p className="text-brand-cream/50">Couldn't load projects right now.</p>}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {repos.map((repo) => (
-            <a key={repo.id} href={repo.url} target="_blank" rel="noopener noreferrer" className="group block p-6 rounded-2xl border border-brand-dark/10 hover:border-brand-mid transition">
+            <a key={repo.id} href={repo.url} target="_blank" rel="noopener noreferrer" className="group block glass rounded-2xl p-6 hover:bg-white/10 transition">
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold text-brand-dark group-hover:text-brand-mid transition">{repo.name}</h3>
-                <ExternalLink size={14} className="text-brand-dark/40" />
+                <h3 className="font-display italic text-lg text-brand-cream group-hover:text-brand-gold transition">{repo.name}</h3>
+                <ExternalLink size={14} className="text-brand-cream/40" />
               </div>
-              <p className="mt-2 text-sm text-brand-dark/60 line-clamp-3">{repo.description}</p>
-              <div className="mt-4 flex items-center gap-4 text-xs text-brand-dark/50">
+              <p className="mt-2 text-sm text-brand-cream/60 line-clamp-3">{repo.description}</p>
+              <div className="mt-4 flex items-center gap-4 text-xs text-brand-cream/40">
                 {repo.language && <span>{repo.language}</span>}
                 <span className="flex items-center gap-1"><Star size={12} /> {repo.stars}</span>
               </div>
