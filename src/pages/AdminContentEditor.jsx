@@ -106,6 +106,23 @@ function AdminContentEditor() {
 
       <div>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+          <h2 className="font-bold text-lg">Skills (Radar Chart)</h2>
+          <button onClick={() => addListItem("skills", { name: "", level: 50 })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition w-fit"><Plus size={12} /> Add skill</button>
+        </div>
+        <p className="text-xs text-brand-dark/50 mb-3">Level is 0-100. 6-10 skills reads best on the chart.</p>
+        <div className="space-y-3">
+          {form.skills.map((s, i) => (
+            <div key={i} className="p-3 rounded-xl border border-brand-dark/10 relative flex items-center gap-3 pr-10">
+              <input className={inputClass} placeholder="Skill name" value={s.name} onChange={(e) => updateListItem("skills", i, "name", e.target.value)} />
+              <input type="number" min="0" max="100" className={inputClass + " w-24"} placeholder="Level" value={s.level} onChange={(e) => updateListItem("skills", i, "level", parseInt(e.target.value) || 0)} />
+              <button onClick={() => removeListItem("skills", i)} className="absolute right-3 text-red-500 hover:text-red-700"><Trash2 size={14} /></button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
           <h2 className="font-bold text-lg">Services</h2>
           <button onClick={() => addListItem("services", { title: "", desc: "" })} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-brand-dark/5 hover:bg-brand-dark/10 transition w-fit"><Plus size={12} /> Add service</button>
         </div>

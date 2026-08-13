@@ -3,6 +3,7 @@ import Navbar from "./components/layout/Navbar.jsx"
 import Hero from "./components/sections/Hero.jsx"
 import MyStory from "./components/sections/MyStory.jsx"
 import PathToMastery from "./components/sections/PathToMastery.jsx"
+import SkillsRadar from "./components/sections/SkillsRadar.jsx"
 import SelectedWorks from "./components/sections/SelectedWorks.jsx"
 import GithubActivity from "./components/sections/GithubActivity.jsx"
 import Services from "./components/sections/Services.jsx"
@@ -21,6 +22,7 @@ function HomePage() {
       <Hero />
       <MyStory />
       <PathToMastery />
+      <SkillsRadar />
       <SelectedWorks />
       <GithubActivity />
       <Services />

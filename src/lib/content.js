@@ -18,6 +18,16 @@ const defaults = {
     { title: "Product Design", desc: "End-to-end design from concept to shipped feature." },
     { title: "Design Systems", desc: "Reusable components and guidelines that scale with your product." },
   ],
+  skills: [
+    { name: "Python", level: 85 },
+    { name: "JavaScript", level: 80 },
+    { name: "C++", level: 70 },
+    { name: "Java", level: 65 },
+    { name: "SQL", level: 75 },
+    { name: "Cloud Computing", level: 70 },
+    { name: "Machine Learning", level: 65 },
+    { name: "Networking", level: 60 },
+  ],
   footerBio: "UX/UI Designer turning complex ideas into simple digital experiences.",
   footerEmail: "alphonce@example.com",
   footerPhone: "+254 700 000 000",
@@ -30,6 +40,10 @@ const defaults = {
     dribbble: "",
     whatsapp: "",
   },
+  profilePhotoUrl: "/images/profile-photo.jpg",
+  photoZoom: 1,
+  photoPosX: 50,
+  photoPosY: 15,
 }
 
 export function useSiteContent() {
