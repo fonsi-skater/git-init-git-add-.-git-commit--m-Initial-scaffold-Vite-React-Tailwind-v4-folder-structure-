@@ -4,6 +4,7 @@ import Hero from "./components/sections/Hero.jsx"
 import MyStory from "./components/sections/MyStory.jsx"
 import PathToMastery from "./components/sections/PathToMastery.jsx"
 import SelectedWorks from "./components/sections/SelectedWorks.jsx"
+import GithubActivity from "./components/sections/GithubActivity.jsx"
 import Services from "./components/sections/Services.jsx"
 import ContactForm from "./components/sections/ContactForm.jsx"
 import Footer from "./components/layout/Footer.jsx"
@@ -20,6 +21,7 @@ function HomePage() {
       <MyStory />
       <PathToMastery />
       <SelectedWorks />
+      <GithubActivity />
       <Services />
       <ContactForm />
       <Footer />
