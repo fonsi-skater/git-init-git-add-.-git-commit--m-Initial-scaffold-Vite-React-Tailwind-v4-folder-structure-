@@ -24,6 +24,9 @@ function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          <span className="flex items-center gap-1.5 px-4 py-2 rounded-full glass text-xs text-brand-cream/60">
+            Press <kbd className="border border-white/20 rounded px-1.5 py-0.5">Ctrl</kbd> <kbd className="border border-white/20 rounded px-1.5 py-0.5">K</kbd>
+          </span>
           <a href="/resume.pdf" download className="flex items-center gap-2 px-5 py-2 rounded-full glass text-sm font-medium hover:bg-white/15 transition">Resume <Download size={14} /></a>
           <button aria-label="Open menu" onClick={() => setOpen(!open)} className="w-10 h-10 flex items-center justify-center rounded-full glass hover:bg-white/15 transition">
             {open ? <X size={16} /> : <Menu size={16} />}
