@@ -1,4 +1,4 @@
-﻿import GitHubCalendar from "react-github-calendar"
+﻿import { GitHubCalendar } from "react-github-calendar"
 import FadeIn from "../ui/FadeIn.jsx"
 
 const USERNAME = "fonsi-skater"
@@ -22,8 +22,6 @@ function GithubActivity() {
               fontSize={12}
               blockSize={11}
               blockMargin={4}
-              hideColorLegend={false}
-              hideMonthLabels={false}
             />
           </div>
 
