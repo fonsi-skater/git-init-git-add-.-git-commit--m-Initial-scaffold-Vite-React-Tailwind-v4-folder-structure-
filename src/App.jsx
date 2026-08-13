@@ -1,40 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react"
-import { useNavigate } from "react-router-dom"
-import { Search } from "lucide-react"
-
-function CommandPalette() {
-  const [open, setOpen] = useState(false)
-  const [query, setQuery] = useState("")
-  const [activeIndex, setActiveIndex] = useState(0)
-  const inputRef = useRef(null)
-  const navigate = useNavigate()
-
-  const commands = [
-    { label: "Go to My Story", action: () => scrollToSection("my-story") },
-    { label: "Go to Path to Mastery", action: () => scrollToSection("path-to-mastery") },
-    { label: "Go to Selected Works", action: () => scrollToSection("selected-works") },
-    { label: "Go to GitHub Activity", action: () => scrollToSection("github-activity") },
-    { label: "Go to Services", action: () => scrollToSection("services") },
-    { label: "Go to Contact", action: () => scrollToSection("contact") },
-    { label: "Download Resume", action: () => window.open("/resume.pdf", "_blank") },
-    { label: "Open GitHub Profile", action: () => window.open("https://github.com/fonsi-skater", "_blank") },
-    { label: "Back to Top", action: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
-  ]
-
-  function scrollToSection(id) {
-    if (window.location.pathname !== "/") {
-      navigate("/")
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 100)
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const filtered = commands.filter((c) =>
-
-
-@'
-import { Routes, Route } from "react-router-dom"
+﻿import { Routes, Route } from "react-router-dom"
 import Navbar from "./components/layout/Navbar.jsx"
 import Hero from "./components/sections/Hero.jsx"
 import MyStory from "./components/sections/MyStory.jsx"
