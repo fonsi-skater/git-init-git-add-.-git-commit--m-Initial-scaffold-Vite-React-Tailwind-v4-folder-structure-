@@ -1,4 +1,5 @@
-﻿import FadeIn from "../ui/FadeIn.jsx"
+﻿import GitHubCalendar from "react-github-calendar"
+import FadeIn from "../ui/FadeIn.jsx"
 
 const USERNAME = "fonsi-skater"
 
@@ -12,18 +13,35 @@ function GithubActivity() {
 
         <FadeIn delay={0.15}>
           <div className="glass rounded-2xl p-6 overflow-x-auto">
-            <img
-              src={`https://ghchart.rshah.org/e0a63c/${USERNAME}`}
-              alt={`${USERNAME}'s GitHub contribution graph`}
-              className="w-full min-w-[600px]"
+            <GitHubCalendar
+              username={USERNAME}
+              colorScheme="dark"
+              theme={{
+                dark: ["#1a1a1e", "#3d3020", "#7a5a24", "#b8842e", "#e0a63c"],
+              }}
+              fontSize={12}
+              blockSize={11}
+              blockMargin={4}
+              hideColorLegend={false}
+              hideMonthLabels={false}
             />
           </div>
-          <p className="mt-3 text-xs text-brand-cream/40">
-            Live contribution history from{" "}
-            <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">
-              github.com/{USERNAME}
-            </a>
-          </p>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-brand-cream/40">
+            <p>
+              Hover any square for the exact date and commit count. Data pulled live from{" "}
+              <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">
+                github.com/{USERNAME}
+              </a>
+            </p>
+            <div className="flex items-center gap-1">
+              <span>Less</span>
+              {["#1a1a1e", "#3d3020", "#7a5a24", "#b8842e", "#e0a63c"].map((c) => (
+                <span key={c} className="w-3 h-3 rounded-sm" style={{ backgroundColor: c }} />
+              ))}
+              <span>More</span>
+            </div>
+          </div>
         </FadeIn>
       </div>
     </section>
